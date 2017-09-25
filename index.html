@@ -1,16 +1,17 @@
 <!doctype html>
-<html lang="en>
+<html lang="en">
   <head>
 
     <title>Local Weather App</title>
   
     <!--character set-->
     <meta charset="utf-8">
-
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
     
     <!--bootstrap set-->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <!-- Latest compiled and minifie d CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -22,42 +23,65 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- css -->
-    <link rel='stylesheet' type= 'text/css' href="randomQuoteGenerator.css">
+    <link rel='stylesheet' type= 'text/css' href="css/style.css">
 
     <!--font-awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   </head>
   <body>
-
-    <div class="container-fluid jumbotron">
-
-      <div id="title" class="row">
-        <div class="col-xs-0 col-md-1 col-lg-2">1 of 3</div>
-        <div class="col-xs-12 col-md-10 col-lg-8">1 of 3</div>
-        <div class="col-xs-0 col-md-1 col-lg-2">1 of 3</div>
+    <div id="content" class="container">
+    <!--start header row-->
+      <div id="header" class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 text-center">
+          <h1>How's the weather?</h1>
+        </div>
+        <div class="col-sm-2"></div>
       </div>
+    <!--end header row-->
 
-      <div id="icon" class="row">
-        <div class="col-xs-0 col-md-1 col-lg-2">1 of 3</div>
-        <div class="col-xs-12 col-md-10 col-lg-8">1 of 3</div>
-        <div class="col-xs-0 col-md-1 col-lg-2">1 of 3</div>
+    <!--start cloud row-->
+      <div id="cloud" class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 text-center">
+          <h2>Logo here...</h2>
+        </div>
+        <div class="col-sm-2"></div>
       </div>
+    <!--end cloud row-->
 
+    <!--start temp row-->
       <div id="temp" class="row">
-        <div class="col-xs-0 col-md-1 col-lg-2">1 of 3</div>
-        <div class="col-xs-12 col-md-10 col-lg-8">1 of 3</div>
-        <div class="col-xs-0 col-md-1 col-lg-2">1 of 3</div>  
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 text-center">
+          <h2>Temperature here</h2>
+        </div>
+        <div class="col-sm-2"></div>
       </div>
+    <!--end temp row-->
 
-      <div id="switch" class="row">
-        <div class="col-xs-0 col-md-1 col-lg-2">1 of 3</div>
-        <div class="col-xs-12 col-md-10 col-lg-8">1 of 3</div>
-        <div class="col-xs-0 col-md-1 col-lg-2">1 of 3</div>
+    <!--start of button row-->
+      <div id="btn" class="">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 text-center">
+          <button class="btn btn-lg btn-default">Check Weather</button>
+        </div>
+        <div class="col-sm-2"></div>
       </div>
+    <!--end of button row-->
 
-    </div>
+  </div>
+  <!--end of content container-->
 
+  <!--start of footer-->
+    <footer>
+      <div class="row"></div>
+    </footer>
+  <!--end of footer-->
+
+  <!--main script-->
     <script src="js/script.js"></script>
+
   </body>
 </html>
