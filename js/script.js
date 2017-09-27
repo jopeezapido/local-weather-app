@@ -23,7 +23,7 @@ $(document).ready(function() {
      };
 
      function error() {
-         alert('Unable to retriev location.')
+         alert('Unable to retrieve location.')
      }
 
      getCoords();
