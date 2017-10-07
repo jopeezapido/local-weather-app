@@ -1,45 +1,26 @@
-$(document).ready(function() {
-    /*I need something that locates my location weherever my device is in*/
+    /*1. I need something that locates my location weherever my device is in*/
 
-    //check the browser support of the navigator object using the geolocation property
-    function getCoords() {
-        
-        if(navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(success, error);
-            //check the if the search for the device's location is succesful or if not
-            function success(position) {
-                //get details for the url
-                var lat = position.coords.latitude;
-                var lon = position.coords.longitude;
-                var url = "http://fcc-weather-api.glitch.me/api/current?" + "lat=" + lat + "&lon=" + lon;
-                console.log(url);
-                return url;
-            };
+    var url = "http://ip-api.com/json";//this is the promise
+    
+    //make a fetch api request to the API to get Location
+    fetch(url)
+        .then(function(res) {
+            //get the response and transform the data into json first
+            var jzone= res.json();
+            //console.log(jzone);
+            return jzone;
+        })
+        .then(function(data) {
+            //access the data to get the url
+            var longitude = data.lon;
+            var latitude = data.lat;
+            var fccEndpoint = "https://fcc-weather-api.glitch.me/api/current?lon=" + longitude + "&lat=" + latitude;
+            console.log(fccEndpoint);
+            return fccEndpoint;
+        })
+        //get the data from fcc
+        .then(function(weatherData) {
+            console.log(weather[0].icon);
             
-            function error(positionError) {
-                alert("Unable to retrieve geolocation");
-            };
-
-        } else {
-            alert("Your browser does not support geolocation");
-        };
-
-    };//end of getCoords function
-    //getCoords();//execute getCoords function to get the latitude and longitude of the location of the device, if successful.
-
-    /*1.2 I need something that gets the weather in the location mentioned in number 1.1*/
-    var url = getCoords();
-    $.ajax({
-        url: url,
-        jsonp: true,
-        dataType: 'jsonp',
-        data: {
-            method: 'GET',
-            lang: 'en',
-            format: 'jsonp'
-        },
-        success: function(result) {
-            alert('Hello');
-        }
-    });
-});//end of document.ready
+        })
+        
