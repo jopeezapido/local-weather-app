@@ -6,21 +6,36 @@
     fetch(url)
         .then(function(res) {
             //get the response and transform the data into json first
-            var jzone= res.json();
-            //console.log(jzone);
-            return jzone;
+            return res.json();
         })
         .then(function(data) {
             //access the data to get the url
             var longitude = data.lon;
             var latitude = data.lat;
             var fccEndpoint = "https://fcc-weather-api.glitch.me/api/current?lon=" + longitude + "&lat=" + latitude;
-            console.log(fccEndpoint);
-            return fccEndpoint;
+            //return fccEndpoint;
+            fetch(fccEndpoint)
+                .then(function(res) {
+                    return res.json();
+                })
+                .then(function(data) {
+                    //console.log(data.main.temp);
+                    var temp = data.main.temp;
+                    var loc = data.main.name;
+                    var country = data.sys.country;
+                    var icon = data.weather[0].icon;
+                    console.log(country);
+                    document.getElementById('cloud').innerHTML= icon;
+                    document.getElementById('temp').innerHTML= temp;
+                    
+                    //return data;
+                })
         })
-        //get the data from fcc
-        .then(function(weatherData) {
-            console.log(weather[0].icon);
-            
+        .catch(function() {
+            alert('Could not retrieve location');
         })
+        //get the data from fcc api
+
+    
+        
         
