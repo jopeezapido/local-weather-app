@@ -3,7 +3,7 @@ $(document).ready(function() {
 
     //check the browser support of the navigator object using the geolocation property
     function getCoords() {
-
+        
         if(navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(success, error);
             //check the if the search for the device's location is succesful or if not
@@ -11,7 +11,7 @@ $(document).ready(function() {
                 //get details for the url
                 var lat = position.coords.latitude;
                 var lon = position.coords.longitude;
-                var url = "https://fcc-weather-api.glitch.me/api/current?" + "lat=" + lat + "&lon=" + lon;
+                var url = "http://fcc-weather-api.glitch.me/api/current?" + "lat=" + lat + "&lon=" + lon;
                 console.log(url);
                 return url;
             };
@@ -29,11 +29,17 @@ $(document).ready(function() {
 
     /*1.2 I need something that gets the weather in the location mentioned in number 1.1*/
     var url = getCoords();
-    $.ajax(url, {
-        success: function() {
-            //handle the JSON data here
-            console.log(main.temp);
+    $.ajax({
+        url: url,
+        jsonp: true,
+        dataType: 'jsonp',
+        data: {
+            method: 'GET',
+            lang: 'en',
+            format: 'jsonp'
+        },
+        success: function(result) {
+            alert('Hello');
         }
     });
-
 });//end of document.ready
