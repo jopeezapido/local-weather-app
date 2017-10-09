@@ -4,10 +4,10 @@
     
     //make a fetch api request to the API to get Location
     fetch(url)
-        /*.then(function(res) {
+        .then(function(res) {
             //get the response and transform the data into json first
             return res.json();
-        })*/
+        })
         .then(function(data) {
             //access the data to get the url
             var longitude = data.lon;
@@ -20,7 +20,7 @@
                 })
                 .then(function(data) {
                     //console.log(data.main.temp);
-                    var buffer = "Checking the weather";
+                    var buffer = "Checking the weather"
                     var temp = data.main.temp;
                     var loc = data.main.name;
                     var country = data.sys.country;
