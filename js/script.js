@@ -1,4 +1,4 @@
-    /*1. I need something that locates my location weherever my device is in*/
+    /*1. I need something that locates my location wherever my device is in*/
 
     var url = "http://ip-api.com/json";//this is the promise
     
