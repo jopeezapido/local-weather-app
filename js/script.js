@@ -1,13 +1,13 @@
     /*1. I need something that locates my location wherever my device is in*/
 
-    var url = "http://ip-api.com/json";//this is the promise
+    var url = "https://ipinfo.io/json";//this is the promise
     
     //make a fetch api request to the API to get Location
     fetch(url)
-        .then(function(res) {
+        /*.then(function(res) {
             //get the response and transform the data into json first
             return res.json();
-        })
+        })*/
         .then(function(data) {
             //access the data to get the url
             var longitude = data.lon;
@@ -20,6 +20,7 @@
                 })
                 .then(function(data) {
                     //console.log(data.main.temp);
+                    var buffer = "Checking the weather";
                     var temp = data.main.temp;
                     var loc = data.main.name;
                     var country = data.sys.country;
