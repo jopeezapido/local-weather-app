@@ -23,17 +23,18 @@
                     var temp = data.main.temp;
                     var loc = data.main.name;
                     var country = data.sys.country;
-                    var icon = data.weather[0].icon;
-                    console.log(country);
-                    document.getElementById('icon').innerHTML= 'Should be a cloud icon';
+                    var imgLink = data.weather[0].icon;
+                    console.log(imgLink);
+                    document.getElementById('cloud').setAttribute("src", imgLink);
                     document.getElementById('temp').innerHTML= temp;
                     //return data;
+                    
                 })
         })
         .catch(function() {
             alert('Could not retrieve location');
         })
-        //get the data from fcc api
+        
 
 
 
