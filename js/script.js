@@ -20,14 +20,31 @@
                     return res.json();
                 })
                 .then(function(data) {
-                    var temp = data.main.temp;
+                    var celc = data.main.temp;
                     var loc = data.main.name;
                     var country = data.sys.country;
                     var imgLink = data.weather[0].icon;
-                    console.log(imgLink);
+                    var button = document.getElementById('convert');
+                    
+                    //render image
                     document.getElementById('cloud').setAttribute("src", imgLink);
+
+                    //by default shown temp is celcius
                     document.getElementById('temp').innerHTML= temp;
-                    //return data;
+
+                    var cToF = {
+                        'celcius': ,
+                        'farenheit': ,
+
+                    }
+
+                    //if button is clicked, celcius temp will be converted to farenheit. Shown text should 'convert to celcius'
+
+
+
+
+                    //if button is clicked again, farenheit temp will be converted to celcius. Shown text should be 'convert to farenheit'
+                
                     
                 })
         })
