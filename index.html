@@ -13,13 +13,9 @@
     <!--bootstrap set-->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!--bootstrap switch css
-    <link href="bootstrap-switch.css" rel="stylesheet">
+    <!--bootstrap toggle css-->
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 
-    bootstrap switch js
-    <script src="bootstrap-switch.js"></script>
-    -->
-    
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     
@@ -52,16 +48,17 @@
       <div id="cloud" class="row">
         <div class="col-sm-2"></div>
         <div class="col-sm-8 text-center">
-          <h2>Logo here...</h2>
+          <h2><span id="icon"></span></h2>
         </div>
         <div class="col-sm-2"></div>
       </div>
     <!--end cloud row-->
 
     <!--start temp row-->
-      <div id="temp" class="row">
+      <div class="row">
         <div class="col-sm-2"></div>
         <div id="box" class="col-sm-8 text-center">
+          <h2><span id="temp"></span></h2>
         </div>
         <div class="col-sm-2"></div>
       </div>
@@ -71,10 +68,7 @@
       <div id="button" class="row">
         <div class="col-sm-2"></div>
         <div class="col-sm-8 text-center">
-          <label class="switch">
-            <input type="checkbox">
-            <span class="slider round"></span>
-          <label>
+          <input type="checkbox" checked data-toggle="toggle" data-on="C" data-off="F" id="switch">
         </div>
         <div class="col-sm-2"></div>
       </div>
@@ -91,6 +85,9 @@
 
   <!--main script-->
     <script src="js/script.js"></script>
+  
+  <!--bootstrap switch js-->
+  <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
   </body>
 </html>

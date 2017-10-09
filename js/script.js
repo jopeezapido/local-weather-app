@@ -13,21 +13,20 @@
             var longitude = data.lon;
             var latitude = data.lat;
             var fccEndpoint = "https://fcc-weather-api.glitch.me/api/current?lon=" + longitude + "&lat=" + latitude;
+            console.log(fccEndpoint);
             //return fccEndpoint;
             fetch(fccEndpoint)
                 .then(function(res) {
                     return res.json();
                 })
                 .then(function(data) {
-                    //console.log(data.main.temp);
                     var temp = data.main.temp;
                     var loc = data.main.name;
                     var country = data.sys.country;
                     var icon = data.weather[0].icon;
                     console.log(country);
-                    document.getElementById('cloud').innerHTML= icon;
+                    document.getElementById('icon').innerHTML= 'Should be a cloud icon';
                     document.getElementById('temp').innerHTML= temp;
-                    
                     //return data;
                 })
         })
@@ -35,6 +34,11 @@
             alert('Could not retrieve location');
         })
         //get the data from fcc api
+
+
+
+
+
 
     
         
