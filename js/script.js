@@ -20,32 +20,36 @@
                     return res.json();
                 })
                 .then(function(data) {
+                    var imgLink = "https://cdn.glitch.com/6e8889e5-7a72-48f0-a061-863548450de5%2F10n.png?1499366021399";
+                    var desc= data.weather[0].description;
                     var celc = data.main.temp;
-                    var loc = data.main.name;
+                    var loc = data.name;
                     var country = data.sys.country;
-                    var imgLink = data.weather[0].icon;
                     var button = document.getElementById('convert');
                     
                     //render image
                     document.getElementById('cloud').setAttribute("src", imgLink);
 
-                    //by default shown temp is celcius
-                    document.getElementById('temp').innerHTML= temp;
+                    //render sky description
+                    document.getElementById('cloud-desc').innerHTML= desc;
 
-                    var cToF = {
+                    //by default shown temp is celcius
+                    document.getElementById('temp').innerHTML= celc;
+
+                    //set location
+                    document.getElementById('location').innerHTML= loc + ", " + country;
+
+                    /*var cToF = {
                         'celcius': ,
                         'farenheit': ,
 
-                    }
+                    }*/
 
                     //if button is clicked, celcius temp will be converted to farenheit. Shown text should 'convert to celcius'
 
 
-
-
                     //if button is clicked again, farenheit temp will be converted to celcius. Shown text should be 'convert to farenheit'
                 
-                    
                 })
         })
         .catch(function() {
