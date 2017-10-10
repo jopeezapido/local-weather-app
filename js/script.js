@@ -39,22 +39,40 @@
                     //set location
                     document.getElementById('location').innerHTML= loc + ", " + country;
 
-                    /*var cToF = {
-                        'celcius': ,
-                        'farenheit': ,
+                    var conv = {
+                        'indicator': ['to F', 'to C'],
+                        'formula': {
+                            'cToF': ((celc * 9)/5)+32, 
+                            //'fToC': ((cToF - 32)*5)/9
+                        }
+                    };
 
-                    }*/
+                    //everytime button is clicked, text will change from 'to F' or 'to C'
+                        /*if(button.childNodes[0].nodeValue == 'Convert to Farenheit') {
+                            $('button').click(function() {
+                                button.innerHTML = 'Convert to Celcius';
+                            })
+                        } else if (button.childNodes[0].nodeValue == 'Convert to Celcius') {
+                            $('button').click(function() {
+                                button.innerHTML = 'Convert to Farenheit';
+                            })
+                        }*/ 
 
-                    //if button is clicked, celcius temp will be converted to farenheit. Shown text should 'convert to celcius'
-
-
-                    //if button is clicked again, farenheit temp will be converted to celcius. Shown text should be 'convert to farenheit'
-                
+                        switch (button.childNodes[0].nodeValue) {
+                            case 'Convert to Farenheit':
+                                $('button').click(function() {
+                                    button.innerHTML = 'Convert to Celcius';
+                                });
+                            case 'Convert to Celcius':
+                                $('button').click(function() {
+                                    button.innerHTML = 'Convert to Farenheit';
+                                });
+                        };
+                    })
                 })
-        })
-        .catch(function() {
-            alert('Could not retrieve location');
-        })
+                .catch(function() {
+                    alert('Could not retrieve location');
+                })
         
 
 
