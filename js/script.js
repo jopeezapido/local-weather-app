@@ -14,7 +14,6 @@
             var latitude = data.lat;
             var fccEndpoint = "https://fcc-weather-api.glitch.me/api/current?lon=" + longitude + "&lat=" + latitude;
             console.log(fccEndpoint);
-            //return fccEndpoint;
             fetch(fccEndpoint)
                 .then(function(res) {
                     return res.json();
@@ -22,7 +21,10 @@
                 .then(function(data) {
                     var imgLink = "https://cdn.glitch.com/6e8889e5-7a72-48f0-a061-863548450de5%2F10n.png?1499366021399";
                     var desc= data.weather[0].description;
-                    var celc = data.main.temp;
+                    var celc = Math.floor(data.main.temp);
+                    var far= Math.floor(((celc * 9)/5)+32);
+                    var celcStr = celc.toString();
+                    var farStr = far.toString();
                     var loc = data.name;
                     var country = data.sys.country;
                     var button = document.getElementById('convert');
@@ -34,52 +36,30 @@
                     document.getElementById('cloud-desc').innerHTML= desc;
 
                     //by default shown temp is celcius
-                    document.getElementById('temp').innerHTML= celc;
+                    document.getElementById('temp').innerHTML= celcStr + '&#176';
 
                     //set location
                     document.getElementById('location').innerHTML= loc + ", " + country;
 
-                    var conv = {
-                        'indicator': ['to F', 'to C'],
-                        'formula': {
-                            'cToF': ((celc * 9)/5)+32, 
-                            //'fToC': ((cToF - 32)*5)/9
-                        }
-                    };
+                    //everytime button is clicked, text will change from 'to F' or 'to C
+                        
+                    $('button').click(function() {
 
-                    //everytime button is clicked, text will change from 'to F' or 'to C'
-                        /*if(button.childNodes[0].nodeValue == 'Convert to Farenheit') {
-                            $('button').click(function() {
-                                button.innerHTML = 'Convert to Celcius';
-                            })
-                        } else if (button.childNodes[0].nodeValue == 'Convert to Celcius') {
-                            $('button').click(function() {
-                                button.innerHTML = 'Convert to Farenheit';
-                            })
-                        }*/ 
+                            if(button.textContent == "Convert to Celcius") {
+                                button.textContent = 'Convert to Farenheit';
+                                //formula to convert to Farenheit
+                                console.log(far.toString());
+                                document.getElementById('temp').innerHTML = celcStr.replace(/\W\D\S/g, farStr) + '&#176';
 
-                        switch (button.childNodes[0].nodeValue) {
-                            case 'Convert to Farenheit':
-                                $('button').click(function() {
-                                    button.innerHTML = 'Convert to Celcius';
-                                });
-                            case 'Convert to Celcius':
-                                $('button').click(function() {
-                                    button.innerHTML = 'Convert to Farenheit';
-                                });
-                        };
-                    })
+                            } else {
+                                button.textContent = 'Convert to Celcius';
+                                //formula to convert to celcius
+                                console.log(celc.toString());
+                                document.getElementById('temp').innerHTML = farStr.replace(/\W\D\S]/g, celcStr) + '&#176';
+                            }
+                        })
+                    });          
                 })
                 .catch(function() {
                     alert('Could not retrieve location');
                 })
-        
-
-
-
-
-
-
-    
-        
-        

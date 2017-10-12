@@ -1,12 +1,32 @@
 body {
-  background: orange;
+  background: #2B2D32;
+  font-family: Merriweather;
+}
+
+#content {
+  padding-top: 80px;
+  color: #C3B5A2;
+}
+
+#cloud-desc {
+  color: #f4f0ea;
 }
 
 h1 {
-  font-size: 7em;
+  font-size: 4em;
   letter-spacing: 2px;
-  padding-top: .3em;
-  color: white;
+  color: f4f0ea;
+}
+
+h2 {
+  font-size: 2em;
+  letter-spacing: 2px;
+  color: f4f0ea;
+}
+
+#button {
+  padding-top: 20px;
+  color: #998d7d;
 }
 
 
