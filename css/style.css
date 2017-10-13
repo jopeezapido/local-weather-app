@@ -29,4 +29,41 @@ h2 {
   color: #998d7d;
 }
 
+footer {
+  padding-top: 20px;
+}
+
+#footer-content {
+  border-top: 2px solid #998d7d;
+}
+
+i {
+  padding-top: 17px;
+}
+
+a {
+  color: #998d7d;
+  font-size: 25px;
+}
+
+a:link {
+  color: #998d7d;
+  font-size: 25px;
+}
+
+a:hover {
+  color: #C3B5A2;
+  text-decoration: none;
+}
+
+a: active {
+  color: #C3B5A2;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #C3B5A2;
+  text-decoration: none;
+}
+
 
