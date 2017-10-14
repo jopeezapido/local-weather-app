@@ -1,6 +1,6 @@
     /*1. I need something that locates my location weherever my device is in*/
 
-    var url = "http://ip-api.com/json";//this is the promise
+    var url = "https://ipinfo.io/json";//this is the promise
     
     //make a fetch api request to the API to get Location
     fetch(url)
@@ -10,8 +10,21 @@
         })
         .then(function(data) {
             //access the data to get the url
-            var longitude = data.lon;
-            var latitude = data.lat;
+            //something to separate the strings and put them into an array
+            var location= data.loc;//a string
+            location = location.split('');//splits seach character returns an array
+
+            //get the index of the comma in the array
+            var ind = location.indexOf(',');
+
+            //join the 2 arrays into a string again
+            var joint = location.join("");
+
+            //get the values of each string
+            var latitude = joint.substring(0, ind);
+            var longitude = joint.substring(ind + 1);
+
+
             var fccEndpoint = "https://fcc-weather-api.glitch.me/api/current?lon=" + longitude + "&lat=" + latitude;
             console.log(fccEndpoint);
             fetch(fccEndpoint)
